@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="cleartype" content="on">
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>WARM SEA ORCHARD</title>
+<link type="text/css" rel="stylesheet" href="site/style/simpleResize.css">    
+</head>
+<body>        
+    <div id="gameContainer" class="gameContainer" alt="HTML5 Game Example" width="2560" height="1600"                    style="width: 240px; height: 150px; padding:0px 520px;">
+        
+        <canvas id="canvas" width="1500" height= "600"> </canvas>
+    </div>         
+</body>
+    <script type="text/javascript" src="site/js/main.js" id="pagejs"></script>
+    <script>
+
+    (function () {
+
+          var game = {
+              element: document.getElementById("gameContainer"),
+              width: 1550,
+              height: 650
+          },
+
+          resizeGame = function () {
+
+              var viewport, newGameWidth, newGameHeight, newGameX, newGameY;		
+              // Get the dimensions of the viewport
+              viewport = {
+                  width: window.innerWidth * 1.28,
+                  height: window.innerHeight
+              };
+
+              // Determine game size
+              if (game.height / game.width > viewport.height / viewport.width) {
+                newGameHeight = viewport.height;
+                newGameWidth = newGameHeight * game.width / game.height;  
+              } else {
+                newGameWidth = viewport.width;
+                newGameHeight = newGameWidth * game.height / game.width;		 
+              }
+
+              game.element.style.width = newGameWidth + "px";
+              game.element.style.height = newGameHeight + "px";
+
+              newGameX = (viewport.width - newGameWidth) / 2;
+              newGameY = (viewport.height - newGameHeight) / 2;
+
+              // Set the new padding of the game so it will be centered
+              game.element.style.padding = newGameY  + "px " + newGameX + "px";
+          };
+
+          window.addEventListener("resize", resizeGame);
+          resizeGame();
+        }())    
+    </script>    
+</html>

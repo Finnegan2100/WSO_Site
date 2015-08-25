@@ -1,0 +1,31 @@
+
+
+body {
+        margin-left: 0;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+
+    }
+    .container {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    #canvas {
+        display: block;
+        padding: 0;
+        margin: 0 auto;
+
+    }
+    @media(max-width:1500px) {
+        .container {
+            margin: 0 50px;
+        }
+        #canvas {
+            width: 100%;
+            height: auto;
+        }
+    }
